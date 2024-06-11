@@ -7,6 +7,9 @@ class CourseCategory(BaseModel):
 
     def __str__(self) :
         return self.title
+    
+    class Meta:
+        pass
 
 class Course(BaseModel):
     title = models.CharField(max_length=100)
@@ -15,8 +18,12 @@ class Course(BaseModel):
     cost= models.CharField(max_length=10)
     short_description = models.CharField(max_length=250)
     description = models.TextField()
+    number_of_students= models.IntegerField()
+    course_image = models.ImageField(upload_to='images/')
     
-    
+    def __str__(self):
+        return self.title
+
 
 
 class Instructor(BaseModel):
@@ -29,5 +36,8 @@ class Instructor(BaseModel):
 
     def __str__(self):
         return self.name
+    
+
+
 
 
